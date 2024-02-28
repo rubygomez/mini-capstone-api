@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  price: 1
+  price: Integer
   image_url: MyString
   description: MyString
 
 two:
   name: MyString
-  price: 1
+  price: Integer
   image_url: MyString
   description: MyString
