@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/products/:id", controller: "products", action: "show"
   post "/products" => "products#create"
   patch "/products/:id" => "products#update"
+  delete "/products/:id" => "products#destroy"
 
 
   # Defines the root path route ("/")
