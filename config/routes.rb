@@ -16,7 +16,15 @@ Rails.application.routes.draw do
   get "/suppliers" => "suppliers#index"
   get "/suppliers/:id" => "suppliers#show"
   post "/suppliers" => "suppliers#create"
+  patch "/suppliers" => "suppliers#update"
+  delete "/suppliers/:id" => "suppliers#destroy"
 
+  get "/images" => "images#index"
+  get "/images/:id" => "images#show"
+  post "/images" => "images#create"
+  patch "/images" => "images#update"
+  delete "/images/:id" => "images#destroy"
+  
 
   # Defines the root path route ("/")
   # root "posts#index"

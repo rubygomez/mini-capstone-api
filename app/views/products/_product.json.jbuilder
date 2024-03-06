@@ -4,5 +4,8 @@ json.price product.price
 json.is_discounted? product.is_discounted?
 json.tax product.tax
 json.total product.total
-json.image_url product.image_url
 json.description product.description
+json.supplier product.supplier
+json.supplier_id product.supplier_id
+
+json.image product.image
