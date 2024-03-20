@@ -33,7 +33,7 @@ class ImagesController < ApplicationController
             render json: {errors: @image.errors.full_messages }, status: 422
         end
     end
-
+2
     def destroy
         @image = Image.find_by(id: params[:id])
         @image.destroy

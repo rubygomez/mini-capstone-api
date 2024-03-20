@@ -7,5 +7,5 @@ json.total product.total
 json.description product.description
 json.supplier product.supplier
 json.supplier_id product.supplier_id
-
-json.image product.image
+json.image_id product.image_id
+json.quantity product.quantity

@@ -11,7 +11,7 @@ class SuppliersControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Supplier.count", 1 do
-      post "/suppliers.json", params: { name: "name", email: "email", phone_number: "123-456-7890"  }
+      post "/suppliers.json", params: { supplier_id: "supplier_id", email: "email", phone_number: "123-456-7890"  }
       assert_response 200
     end
 
@@ -31,7 +31,7 @@ class SuppliersControllerTest < ActionDispatch::IntegrationTest
 
   test "update" do
     supplier = Supplier.first
-    patch "/suppliers/#{supplier.id}.json", params: { name: "Updated name" }
+    patch "/suppliers/#{supplier.id}.json", params: {supplier_id: "Updated supplier_id" }
     assert_response 200
 
     data = JSON.parse(response.body)
@@ -50,3 +50,4 @@ class SuppliersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 end
+
