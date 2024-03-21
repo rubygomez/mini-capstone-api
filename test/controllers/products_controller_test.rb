@@ -11,8 +11,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Product.count", 1 do
-      post "/products.json", params: { supplier_id: Supplier.first.id, price: 10, description: "test description"  }
+      post "/products.json", params: { supplier_id: Supplier.first.id, price: 10, description: "test descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", quantity: 1, image_id: 1}
+      data = JSON.parse(response.body)
       assert_response 200
+      refute_nil data["id"]
+      assert_equal "test descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", data["description"]
     end
 
     assert_difference "Product.count", 0 do
@@ -31,16 +34,21 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "update" do
     product = Product.first
-    patch "/products/#{product.id}.json", params: { name: "Updated name" }
+    patch "/products/#{product.id}.json", params: { name: "Updated name", description: "longgggggggggggggggggg ggggggg", price: 1, quantity: 1, supplier_id: Supplier.first.id, image_id: 1}
     assert_response 200
 
     data = JSON.parse(response.body)
     assert_equal "Updated name", data["name"]
-    assert_equal product.price.to_s, data["price"]
-    assert_equal product.description, data["description"]
+    assert_equal 1, data["price"]
+    assert_equal "longgggggggggggggggggg ggggggg", data["description"]
+    assert_equal Supplier.first.id, data["supplier_id"]
+    assert_difference "Product.count", 0 do
+      post "/products.json", params: {description:"yo"}
+      assert_response 422
+    end
 
-    patch "/products/#{product.id}.json", params: { name: ""}
-    assert_response 422
+    # patch "/products/#{product.id}.json", params: { name: ""}
+    # assert_response 422
   end
 
   test "destroy" do

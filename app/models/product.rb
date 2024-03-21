@@ -9,6 +9,7 @@ class Product < ApplicationRecord
     #     Supplier.find_by(id: supplier_id)
     # end
     belongs_to :supplier
+    validates :supplier, presence: true
     # shortcut^ for ^^
     
     def images
