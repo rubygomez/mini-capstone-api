@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.create(
+            user_id: current_user.id,
             name: params[:name],
             price: params[:price],
             description: params[:description],
