@@ -2,6 +2,5 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": "off",
     "editor.lineHeight": 2,
-    "editor.fontFamily": "Monaspace Xenon, monospace",
-    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
 }
