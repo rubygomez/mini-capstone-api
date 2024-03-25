@@ -1,9 +1,6 @@
 class Product < ApplicationRecord
     belongs_to :user
-    # validates :name, presence: true
-    # validates :price, presence: true
-    # validates :price, numericality: true
-    # validates :description,length: {minimum: 20}
+    has_many :orders
     validates :quantity, comparison: {greater_than: 0}
 
     # def supplier
@@ -11,11 +8,10 @@ class Product < ApplicationRecord
     # end
     belongs_to :supplier
     validates :supplier, presence: true
-    # shortcut^ for ^^
-    
-    def images
-        Image.where(product_id: id)
-    end
+    has_many :images  
+    # def images
+    #     Image.where(product_id: id)
+    # end
 
     def is_discounted?
         price <= 10
