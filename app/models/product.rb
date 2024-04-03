@@ -9,6 +9,14 @@ class Product < ApplicationRecord
     belongs_to :supplier
     validates :supplier, presence: true
     has_many :images  
+    has_many :category_products
+    has_many :categories, through: :category_products
+
+    # def categories
+    #     category_product.map do |category_product|
+    #         category_product.category
+    #     end
+    # end
     # def images
     #     Image.where(product_id: id)
     # end
