@@ -1,8 +1,7 @@
 class Product < ApplicationRecord
-    belongs_to :user
     has_many :orders
     validates :quantity, comparison: {greater_than: 0}
-
+    
     # def supplier
     #     Supplier.find_by(id: supplier_id)
     # end
@@ -11,6 +10,9 @@ class Product < ApplicationRecord
     has_many :images  
     has_many :category_products
     has_many :categories, through: :category_products
+    
+    belongs_to :order
+    has_many :carted_products
 
     # def categories
     #     category_product.map do |category_product|
