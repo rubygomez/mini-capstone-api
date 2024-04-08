@@ -1,19 +1,17 @@
 class Product < ApplicationRecord
-    has_many :orders
     validates :quantity, comparison: {greater_than: 0}
+    validates :supplier, presence: true
     
     # def supplier
     #     Supplier.find_by(id: supplier_id)
     # end
     belongs_to :supplier
-    validates :supplier, presence: true
+    has_many :carted_products
+    has_many :orders, through: :carted_products
     has_many :images  
     has_many :category_products
     has_many :categories, through: :category_products
     
-    belongs_to :order
-    has_many :carted_products
-
     # def categories
     #     category_product.map do |category_product|
     #         category_product.category
